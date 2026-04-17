@@ -28,18 +28,18 @@ export const About = () => {
         >
           <div className="aspect-[2/3] md:aspect-[3/4.5] rounded-[40px] overflow-hidden border border-white/10 bg-white/5 accent-glow">
              <img 
-               src="/profile.jpg" 
+               src="/profile.jpg.png" 
                alt="Ashraf - Digital Marketing Specialist" 
                className="w-full h-full object-cover object-top"
                referrerPolicy="no-referrer"
                onError={(e) => {
                  const img = e.target as HTMLImageElement;
-                 if (img.src.endsWith('/profile.jpg')) {
-                   img.src = '/profile.jpg.png';
-                 } else if (img.src.endsWith('/profile.jpg.png')) {
+                 if (img.src.includes('profile.jpg.png')) {
                    img.src = '/profile.jpg.jpeg';
+                 } else if (!img.src.includes('pollinations.ai')) {
+                   img.src = 'https://pollinations.ai/p/professional-portrait-digital-marketing-specialist-man-suit-clean-background-8k?width=800&height=1200&nologo=true';
                  } else {
-                   img.src = 'https://pollinations.ai/p/professional%20full%20body%20portrait%20of%20a%20digital%20marketing%20specialist%20man%20with%20dark%20hair%20and%20brown%20blazer%20standing%20next%20to%20a%20vintage%20suitcase%20clean%20minimal%20background%20high%20fashion?width=800&height=1200&nologo=true';
+                   img.src = 'https://picsum.photos/seed/ashraf-about/800/1200';
                  }
                }}
              />
