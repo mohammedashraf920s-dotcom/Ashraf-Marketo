@@ -4,10 +4,12 @@
  */
 
 import { motion } from 'motion/react';
-import { ExternalLink, CheckCircle2, ShoppingCart, Layout, Globe, ChevronRight } from 'lucide-react';
+import { ExternalLink, CheckCircle2, ShoppingCart, Layout, Globe, ChevronRight, Play, Smartphone, Share2 } from 'lucide-react';
+import { getGeneratedImage } from '@/src/lib/imageGenerator';
 
 const CASE_STUDIES = [
   {
+    pickId: 'EC-01',
     title: 'ShopMaster',
     tag: 'AI POWERED E-COMMERCE SOLUTION',
     description: 'Built a complete automated e-commerce system that handles inventory, orders, and customer support — reducing manual work by 80%.',
@@ -16,31 +18,59 @@ const CASE_STUDIES = [
       { label: 'Time Saved', value: '80%' },
       { label: 'Revenue Boost', value: '3x' }
     ],
-    image: 'https://picsum.photos/seed/shopmaster/800/600',
+    image: getGeneratedImage('ShopMaster', 'AI e-commerce dashboard and automated storefront'),
     icon: ShoppingCart
   },
   {
-    title: 'No-Code Bundle Site',
-    tag: 'HIGH CONVERTING LANDING PAGE',
-    description: 'Designed and developed a premium landing page that converts visitors into buyers with optimized copy and seamless checkout.',
-    solution: 'Strategic layout with trust signals, social proof, and frictionless payment integration.',
+    pickId: 'SM-05',
+    title: 'Viral TikTok Engine',
+    tag: 'SOCIAL MEDIA GROWTH CAMPAIGN',
+    description: 'Generated 5M+ views for a boutique brand using data-driven hooks and professional short-form editing.',
+    solution: 'High-retention video editing paired with trend-prediction algorithms for maximum reach.',
     stats: [
-      { label: 'Conversion Rate', value: '12%' },
-      { label: 'Bounce Rate', value: '-45%' }
+      { label: 'Views Generated', value: '5M+' },
+      { label: 'Engagement', value: '18%' }
     ],
-    image: 'https://picsum.photos/seed/nocode/800/600',
+    image: getGeneratedImage('Viral TikTok', 'Professional video editing workspace and viral social media analytics'),
+    icon: Share2
+  },
+  {
+    pickId: 'LD-12',
+    title: 'Apple ID Lead Gen',
+    tag: 'SPECIALIZED MARKETING PIPELINE',
+    description: 'Developed a custom digital infrastructure marketing system for high-volume lead generation.',
+    solution: 'Automated landing pages with secure validation and seamless account integration.',
+    stats: [
+      { label: 'Leads/Day', value: '200+' },
+      { label: 'Accuracy', value: '99.9%' }
+    ],
+    image: getGeneratedImage('Apple ID Marketing', 'Sleek smartphone interface and digital marketing security'),
     icon: Layout
   },
   {
-    title: 'Omor AI Builder',
-    tag: 'SAAS TOOL BUILT WITH LOVABLE',
-    description: 'Created an AI-powered website builder that enables users to launch professional sites in minutes without any coding knowledge.',
-    solution: 'Intuitive drag-and-drop interface with AI content generation and instant deployment.',
+    pickId: 'YT-08',
+    title: 'YouTube Dominance',
+    tag: 'CHANNEL SCALE STRATEGY',
+    description: 'Scaled a tech channel from 0 to 50k subscribers in 4 months using strategic SEO and thumbnail optimization.',
+    solution: 'Custom SEO frameworks and high-CTR thumbnail design systems built for the YouTube algorithm.',
     stats: [
-      { label: 'Build Time', value: '5 min' },
-      { label: 'Users Served', value: '500+' }
+      { label: 'Subscribers', value: '50K+' },
+      { label: 'CTR Growth', value: '4x' }
     ],
-    image: 'https://picsum.photos/seed/aibuilder/800/600',
+    image: getGeneratedImage('YouTube Growth', 'Professional video studio and viral thumbnail analytics'),
+    icon: Play
+  },
+  {
+    pickId: 'BA-03',
+    title: 'Global Brand Launch',
+    tag: 'MARKETING ARCHITECTURE',
+    description: 'Developed the complete marketing ecosystem for a luxury fashion brand entering the South Asian market.',
+    solution: 'Omni-channel presence with unified messaging across Instagram, Pinterest, and personal shopping avenues.',
+    stats: [
+      { label: 'Market Share', value: '15%' },
+      { label: 'Brand Loyalty', value: 'High' }
+    ],
+    image: getGeneratedImage('Luxury Brand Launch', 'Premium fashion marketing and retail architecture'),
     icon: Globe
   }
 ];
@@ -50,7 +80,7 @@ export const Portfolio = () => {
     <section id="portfolio" className="py-24 bg-bg">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-24">
-          <span className="badge-pill mb-4 italic tracking-widest text-[11px]">Selected Works</span>
+          <span className="bg-accent/10 border border-accent/20 text-accent px-8 py-2.5 rounded-full text-[14px] font-bold uppercase tracking-[3px] mb-8 inline-block italic">Selected Works</span>
           <h2 className="serif-heading text-6xl md:text-7xl">
             Case <span className="text-accent">Studies</span>
           </h2>
@@ -71,14 +101,21 @@ export const Portfolio = () => {
             >
               {/* Image Side */}
               <div className="w-full lg:w-1/2 relative group">
-                <div className="aspect-video rounded-[32px] overflow-hidden border border-border accent-glow relative">
+                <div className="aspect-video rounded-[32px] overflow-hidden border border-border bg-white/5 accent-glow relative">
                   <img 
                     src={study.image} 
                     alt={study.title} 
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    referrerPolicy="no-referrer"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).src = `https://picsum.photos/seed/${study.pickId}/800/450`;
+                    }}
                   />
-                  <div className="absolute top-6 left-6 w-12 h-12 rounded-xl bg-black/60 backdrop-blur-md border border-white/10 flex items-center justify-center text-accent">
+                  <div className="absolute top-6 left-6 w-12 h-12 rounded-xl bg-black/60 backdrop-blur-md border border-white/10 flex items-center justify-center text-accent z-10">
                     <study.icon size={24} />
+                  </div>
+                  <div className="absolute bottom-6 right-6 bg-accent text-black font-black text-[12px] px-4 py-1.5 rounded-full shadow-xl">
+                    ID: {study.pickId}
                   </div>
                 </div>
               </div>

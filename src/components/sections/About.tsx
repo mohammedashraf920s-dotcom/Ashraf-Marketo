@@ -7,11 +7,11 @@ import { motion } from 'motion/react';
 import { CheckCircle2, ChevronRight } from 'lucide-react';
 
 const WHY_WORK_WITH_ME = [
-  'Founder of DokanGrowth — serving E-commerce businesses.',
-  'Creator of No-Code Mastery Bundle — empowering builders.',
-  'Built automated systems, generating consistent revenue.',
-  'Helping businesses scale with AI-powered solutions.',
-  'Proven track record of delivering measurable results.'
+  'Expert in Facebook & Instagram Ad algorithms.',
+  'Creative Short Video editor for Reels & TikTok.',
+  'High-converting E-commerce website developer.',
+  'Proven strategies for YouTube channel growth.',
+  'Apple ID marketing for digital infrastructure setup.'
 ];
 
 export const About = () => {
@@ -26,13 +26,21 @@ export const About = () => {
            viewport={{ once: true }}
            className="relative"
         >
-          <div className="aspect-[3/4] rounded-[40px] overflow-hidden border-2 border-accent/20 accent-glow">
+          <div className="aspect-[2/3] md:aspect-[3/4.5] rounded-[40px] overflow-hidden border border-white/10 bg-white/5 accent-glow">
              <img 
-               src="/profile-about.jpg" 
-               alt="Ashraf Marketo Professional" 
-               className="w-full h-full object-cover"
+               src="/profile.jpg" 
+               alt="Ashraf - Digital Marketing Specialist" 
+               className="w-full h-full object-cover object-top"
+               referrerPolicy="no-referrer"
                onError={(e) => {
-                 (e.target as HTMLImageElement).src = 'https://picsum.photos/seed/ashraf-about/600/800';
+                 const img = e.target as HTMLImageElement;
+                 if (img.src.endsWith('/profile.jpg')) {
+                   img.src = '/profile.jpg.png';
+                 } else if (img.src.endsWith('/profile.jpg.png')) {
+                   img.src = '/profile.jpg.jpeg';
+                 } else {
+                   img.src = 'https://pollinations.ai/p/professional%20full%20body%20portrait%20of%20a%20digital%20marketing%20specialist%20man%20with%20dark%20hair%20and%20brown%20blazer%20standing%20next%20to%20a%20vintage%20suitcase%20clean%20minimal%20background%20high%20fashion?width=800&height=1200&nologo=true';
+                 }
                }}
              />
           </div>
@@ -46,7 +54,7 @@ export const About = () => {
            className="space-y-8"
         >
           <div>
-            <span className="badge-pill mb-4 italic">About Me</span>
+            <span className="bg-accent/10 border border-accent/20 text-accent px-6 py-2 rounded-full text-[14px] font-bold uppercase tracking-[2px] mb-6 inline-block italic">About Me</span>
             <h2 className="serif-heading text-5xl md:text-6xl mb-6">
               Empowering Brands with <br/> 
               <span className="text-accent">Digital Strategy</span>

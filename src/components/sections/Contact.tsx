@@ -20,7 +20,7 @@ export const Contact = () => {
             className="space-y-12"
           >
             <div>
-              <span className="badge-pill mb-4 italic">Get in Touch</span>
+              <span className="bg-accent/10 border border-accent/20 text-accent px-8 py-2.5 rounded-full text-[14px] font-bold uppercase tracking-[3px] mb-8 inline-block italic">Get in Touch</span>
               <h2 className="serif-heading text-5xl md:text-6xl mb-6">
                 Let's Build Something <br/> 
                 <span className="text-accent">Extraordinary</span>
@@ -32,9 +32,9 @@ export const Contact = () => {
 
             <div className="space-y-6">
               {[
-                { icon: Mail, label: 'Email Me', value: 'ashraf@marketo.ai', href: 'mailto:ashraf@marketo.ai' },
+                { icon: Mail, label: 'Email Me', value: 'sheikhhridoy456@gmail.com', href: 'mailto:sheikhhridoy456@gmail.com' },
                 { icon: Linkedin, label: 'LinkedIn', value: 'Ashraf Marketo', href: 'https://linkedin.com' },
-                { icon: MessageCircle, label: 'WhatsApp', value: '+880 1234 567890', href: 'https://wa.me/8801234567890' }
+                { icon: MessageCircle, label: 'WhatsApp', value: '+880 1784 517661', href: 'https://wa.me/8801784517661' }
               ].map((item) => (
                 <a 
                   key={item.label}
@@ -66,7 +66,6 @@ export const Contact = () => {
               className="space-y-6" 
               onSubmit={(e) => {
                 e.preventDefault();
-                alert('Thank you for your message! I will get back to you soon.');
                 (e.target as HTMLFormElement).reset();
               }}
             >
@@ -82,7 +81,7 @@ export const Contact = () => {
                 <label className="text-[11px] font-bold uppercase tracking-widest text-text-dim px-2">Email Address</label>
                 <input 
                   type="email" 
-                  placeholder="ashraf@marketo.ai"
+                  placeholder="sheikhhridoy456@gmail.com"
                   className="w-full bg-bg/50 border border-border rounded-2xl px-6 py-4 focus:outline-none focus:border-accent transition-all text-white"
                 />
               </div>

@@ -23,7 +23,8 @@ export const Navbar = () => {
     { label: 'Home', href: '#home' },
     { label: 'About', href: '#about' },
     { label: 'Services', href: '#services' },
-    { label: 'Portfolio', href: '#portfolio' },
+    { label: 'Blog', href: '#blog' },
+    { label: 'Reviews', href: '#reviews' },
     { label: 'Contact', href: '#contact' },
   ];
 
