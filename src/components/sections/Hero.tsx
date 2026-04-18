@@ -19,15 +19,17 @@ export const Hero = () => {
           transition={{ duration: 0.8 }}
           className="relative z-10"
         >
-          <h1 className="serif-heading text-5xl md:text-7xl lg:text-8xl mb-8">
-            Digital <br/>
+          <h1 className="serif-heading text-6xl md:text-8xl lg:text-9xl mb-10">
+            <span className="text-white">Digital</span> <br/>
             <span className="gradient-gold">Marketing</span> <br/>
-            <span className="gradient-gold">Specialist.</span>
+            <span className="text-white">Specialist.</span>
           </h1>
 
-          <div className="flex flex-wrap gap-3 mb-8">
+          <div className="flex flex-wrap gap-4 mb-10">
             {['Facebook & Instagram', 'TikTok & YouTube', 'Short Video Editing', 'E-commerce Dev'].map((badge) => (
-              <span key={badge} className="badge-pill">{badge}</span>
+              <span key={badge} className="bg-secondary-bg/50 border border-accent/20 px-5 py-2 rounded-full text-[13px] font-bold text-white/90 hover:border-accent/50 transition-colors uppercase tracking-[1px]">
+                {badge}
+              </span>
             ))}
           </div>
 
@@ -48,16 +50,16 @@ export const Hero = () => {
 
         {/* Right Content - Hero Image */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
+          initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 0.2 }}
           className="relative flex justify-center lg:justify-end"
         >
-          <div className="relative w-full max-w-[500px] aspect-[4/5] rounded-[40px] overflow-hidden bg-gradient-to-br from-white/10 to-transparent border border-white/10 accent-glow group">
+          <div className="relative w-full max-w-[540px] aspect-[4/5] rounded-[60px] overflow-hidden border-[1.5px] border-accent/15 shadow-[0_0_80px_-20px_rgba(255,190,51,0.15)] group bg-secondary-bg">
             <img 
-              src="/profile.png?v=11" 
+              src="/profile.png?v=12" 
               alt="Ashraf Marketo" 
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
               referrerPolicy="no-referrer"
               loading="eager"
               onError={(e) => {
@@ -70,14 +72,14 @@ export const Hero = () => {
             <motion.div 
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute top-6 right-6 bg-black/70 backdrop-blur-xl border border-white/10 p-4 rounded-3xl flex items-center gap-4 shadow-2xl z-20"
+              className="absolute top-8 right-8 bg-black/60 backdrop-blur-2xl border border-white/5 p-5 rounded-[32px] flex items-center gap-5 shadow-2xl z-20 min-w-[180px]"
             >
-               <div className="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center text-accent">
-                 <Briefcase size={22} fill="currentColor" fillOpacity={0.2} />
+               <div className="w-14 h-14 rounded-full bg-accent/15 flex items-center justify-center text-accent">
+                 <Briefcase size={26} fill="currentColor" fillOpacity={0.1} />
                </div>
                <div>
-                  <div className="text-2xl font-bold leading-none text-white font-sans">50+</div>
-                  <div className="text-[10px] text-white/50 uppercase tracking-widest font-bold mt-1">Projects Delivered</div>
+                  <div className="text-3xl font-bold leading-none text-white font-sans tracking-tight">50+</div>
+                  <div className="text-[10px] text-white/40 uppercase tracking-[2px] font-bold mt-2">Projects Delivered</div>
                </div>
             </motion.div>
 
@@ -85,13 +87,13 @@ export const Hero = () => {
             <motion.div 
               animate={{ y: [0, 8, 0] }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-              className="absolute bottom-6 left-6 bg-black/80 backdrop-blur-lg border border-white/10 px-6 py-3 rounded-full flex items-center gap-3 shadow-2xl z-20"
+              className="absolute bottom-8 left-8 bg-black/60 backdrop-blur-xl border border-white/5 px-8 py-4 rounded-full flex items-center gap-4 shadow-2xl z-20"
             >
-               <div className="flex h-3 w-3 relative">
+               <div className="flex h-3.5 w-3.5 relative">
                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                 <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                 <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-green-500"></span>
                </div>
-               <span className="text-sm font-bold text-white tracking-wide">Open for Projects</span>
+               <span className="text-[15px] font-bold text-white/90 tracking-wider">Open for Projects</span>
             </motion.div>
           </div>
         </motion.div>
