@@ -55,18 +55,14 @@ export const Hero = () => {
         >
           <div className="relative w-full max-w-[500px] aspect-[4/5] rounded-[40px] overflow-hidden bg-white/5 border border-white/10 accent-glow">
             <img 
-              src="/profile.png" 
+              src="/ashraf-profile.png?v=1" 
               alt="Ashraf - Digital Marketing Specialist" 
               className="w-full h-full object-cover"
               referrerPolicy="no-referrer"
               onError={(e) => {
                 const img = e.target as HTMLImageElement;
-                if (img.src.endsWith('/profile.png')) {
-                  img.src = '/profile.jpeg';
-                } else if (!img.src.includes('pollinations.ai')) {
+                if (!img.src.includes('pollinations.ai')) {
                   img.src = 'https://pollinations.ai/p/professional-digital-marketing-specialist-man-blazer-vintage-aesthetic-cinematic-8k?width=800&height=1000&nologo=true';
-                } else {
-                  img.src = 'https://picsum.photos/seed/ashraf-digital-marketer/800/1000';
                 }
               }}
             />
