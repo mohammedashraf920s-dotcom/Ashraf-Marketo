@@ -282,27 +282,36 @@ const REVIEWS = [
 
 export const Testimonials = () => {
   const [showAll, setShowAll] = React.useState(false);
-  const displayedReviews = showAll ? REVIEWS : REVIEWS.slice(0, 6);
+  const displayedReviews = showAll ? REVIEWS : REVIEWS.slice(0, 9);
 
   return (
     <section id="reviews" className="py-24 bg-bg border-t border-white/5">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-20">
-          <motion.span 
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="bg-accent/10 border border-accent/20 text-accent px-8 py-2.5 rounded-full text-[14px] font-bold uppercase tracking-[3px] mb-8 inline-block italic"
+            className="flex items-center justify-center gap-2 mb-8"
           >
-            Global Feedback
-          </motion.span>
+            <div className="flex">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} size={14} fill="#FBBC05" className="text-[#FBBC05]" />
+              ))}
+            </div>
+            <span className="text-white/60 text-xs font-bold uppercase tracking-widest flex items-center gap-2">
+              <img src="https://www.google.com/favicon.ico" alt="G" className="w-3 h-3" />
+              Google Rated 4.9/5
+            </span>
+          </motion.div>
+          
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="serif-heading text-6xl md:text-8xl"
+            className="serif-heading text-7xl md:text-9xl mb-4"
           >
-            Client <span className="text-accent">Success</span>
+            Client <span className="gradient-gold">Reviews</span>
           </motion.h2>
           <p className="text-text-dim mt-8 max-w-2xl mx-auto text-lg leading-relaxed">
              Join over 500+ global clients from major cities who have scaled their businesses using our advanced strategies.
