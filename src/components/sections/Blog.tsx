@@ -4,7 +4,7 @@
  */
 
 import { motion } from 'motion/react';
-import { Calendar, ChevronRight } from 'lucide-react';
+import { Calendar, ChevronRight, Twitter, Linkedin, Share2 } from 'lucide-react';
 
 const MARKETING_ARTICLES = [
   {
@@ -109,9 +109,28 @@ export const Blog = () => {
                   <p className="text-[15px] text-text-dim leading-relaxed line-clamp-2 font-medium">
                     {post.excerpt}
                   </p>
-                  <div className="pt-6 flex items-center gap-3 text-xs font-black text-white group/btn uppercase tracking-[3px] border-t border-white/10 mt-auto group-hover:text-accent transition-colors">
-                     Read Strategy
-                     <ChevronRight size={16} className="group-hover/btn:translate-x-1 transition-transform" />
+                  <div className="pt-6 flex items-center justify-between border-t border-white/10 mt-auto">
+                    <div className="flex items-center gap-3 text-xs font-black text-white group/btn uppercase tracking-[3px] group-hover:text-accent transition-colors">
+                       Read Strategy
+                       <ChevronRight size={16} className="group-hover/btn:translate-x-1 transition-transform" />
+                    </div>
+                    
+                    <div className="flex items-center gap-2" onClick={(e) => e.stopPropagation()}>
+                       <button 
+                         className="p-2 rounded-full bg-white/5 border border-white/10 text-white/50 hover:text-accent hover:border-accent/30 transition-all"
+                         title="Share on Twitter"
+                         onClick={() => window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(post.title)}`, '_blank')}
+                       >
+                         <Twitter size={14} />
+                       </button>
+                       <button 
+                         className="p-2 rounded-full bg-white/5 border border-white/10 text-white/50 hover:text-accent hover:border-accent/30 transition-all"
+                         title="Share on LinkedIn"
+                         onClick={() => window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${window.location.href}`, '_blank')}
+                       >
+                         <Linkedin size={14} />
+                       </button>
+                    </div>
                   </div>
                 </div>
               </div>

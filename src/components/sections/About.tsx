@@ -5,7 +5,6 @@
 
 import { motion } from 'motion/react';
 import { CheckCircle2, ChevronRight } from 'lucide-react';
-import profileImg from '../../profile.png';
 
 const WHY_WORK_WITH_ME = [
   'Expert in Facebook & Instagram Ad algorithms.',
@@ -29,16 +28,18 @@ export const About = () => {
         >
           <div className="aspect-[2/3] md:aspect-[3/4.5] rounded-[40px] overflow-hidden border border-white/10 bg-white/5 accent-glow">
              <img 
-               src={profileImg} 
+               src="/profile.png" 
                alt="Ashraf - Digital Marketing Specialist" 
                className="w-full h-full object-cover object-top"
                referrerPolicy="no-referrer"
                onError={(e) => {
                  const img = e.target as HTMLImageElement;
-                 if (!img.src.includes('pollinations.ai')) {
+                 if (img.src.endsWith('/profile.png')) {
+                   img.src = '/profile.jpeg';
+                 } else if (!img.src.includes('pollinations.ai')) {
                    img.src = 'https://pollinations.ai/p/professional-portrait-digital-marketing-specialist-man-suit-clean-background-8k?width=800&height=1200&nologo=true';
                  } else {
-                   img.src = 'https://picsum.photos/seed/ashraf-about/800/1200';
+                   img.src = 'https://picsum.photos/seed/ashraf-professional/800/1200';
                  }
                }}
              />
