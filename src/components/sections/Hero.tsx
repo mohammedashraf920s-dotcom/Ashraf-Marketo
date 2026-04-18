@@ -70,14 +70,14 @@ export const Hero = () => {
             <motion.div 
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute top-8 right-8 bg-[#1a1a1a]/80 backdrop-blur-md border border-white/20 p-4 rounded-2xl flex items-center gap-3 shadow-2xl z-20"
+              className="absolute top-6 right-6 bg-black/70 backdrop-blur-xl border border-white/10 p-4 rounded-3xl flex items-center gap-4 shadow-2xl z-20"
             >
-               <div className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center text-accent shadow-[0_0_15px_rgba(255,190,51,0.3)]">
-                 <Briefcase size={20} />
+               <div className="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center text-accent">
+                 <Briefcase size={22} fill="currentColor" fillOpacity={0.2} />
                </div>
                <div>
-                  <div className="text-xl font-bold leading-none text-white">50+</div>
-                  <div className="text-[10px] text-text-dim uppercase tracking-tighter">Projects Delivered</div>
+                  <div className="text-2xl font-bold leading-none text-white font-sans">50+</div>
+                  <div className="text-[10px] text-white/50 uppercase tracking-widest font-bold mt-1">Projects Delivered</div>
                </div>
             </motion.div>
 
@@ -85,13 +85,13 @@ export const Hero = () => {
             <motion.div 
               animate={{ y: [0, 8, 0] }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-              className="absolute bottom-8 left-8 bg-[#0a0a0a]/90 backdrop-blur-md border border-white/20 px-5 py-2.5 rounded-full flex items-center gap-3 shadow-2xl z-20"
+              className="absolute bottom-6 left-6 bg-black/80 backdrop-blur-lg border border-white/10 px-6 py-3 rounded-full flex items-center gap-3 shadow-2xl z-20"
             >
-               <span className="relative flex h-3 w-3">
+               <div className="flex h-3 w-3 relative">
                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                  <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
-               </span>
-               <span className="text-sm font-semibold text-white">Open for Projects</span>
+               </div>
+               <span className="text-sm font-bold text-white tracking-wide">Open for Projects</span>
             </motion.div>
           </div>
         </motion.div>
