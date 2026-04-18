@@ -53,16 +53,21 @@ export const Hero = () => {
           transition={{ duration: 1, delay: 0.2 }}
           className="relative flex justify-center lg:justify-end"
         >
-          <div className="relative w-full max-w-[500px] aspect-[4/5] rounded-[40px] overflow-hidden bg-white/5 border border-white/10 accent-glow">
+          <div className="relative w-full max-w-[500px] aspect-[4/5] rounded-[40px] overflow-hidden bg-gradient-to-br from-white/10 to-transparent border border-white/10 accent-glow group">
             <img 
-              src="/ashraf-profile.png?v=1" 
-              alt="Ashraf - Digital Marketing Specialist" 
-              className="w-full h-full object-cover"
+              src="/profile.png?v=7" 
+              alt="Ashraf Marketo" 
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 bg-black"
               referrerPolicy="no-referrer"
+              loading="eager"
               onError={(e) => {
                 const img = e.target as HTMLImageElement;
-                if (!img.src.includes('pollinations.ai')) {
-                  img.src = 'https://pollinations.ai/p/professional-digital-marketing-specialist-man-blazer-vintage-aesthetic-cinematic-8k?width=800&height=1000&nologo=true';
+                if (img.src.includes('profile.png')) {
+                  // Fallback 1: AI Generated Portrait matching your requested look (brown blazer/suitcase)
+                  img.src = 'https://pollinations.ai/p/professional-young-man-brown-wool-tweed-blazer-dark-brown-shirt-beige-pleated-trousers-beard-styled-dark-hair-leaning-on-vintage-suitcase-cinematic-lighting-8k?width=800&height=1000&nologo=true';
+                } else if (img.src.includes('pollinations.ai')) {
+                  // Fallback 2: Reliable standard placeholder
+                  img.src = 'https://picsum.photos/seed/ashraf-suit/800/1000';
                 }
               }}
             />

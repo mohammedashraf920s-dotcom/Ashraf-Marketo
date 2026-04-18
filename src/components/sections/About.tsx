@@ -26,16 +26,21 @@ export const About = () => {
            viewport={{ once: true }}
            className="relative"
         >
-          <div className="aspect-[2/3] md:aspect-[3/4.5] rounded-[40px] overflow-hidden border border-white/10 bg-white/5 accent-glow">
+          <div className="aspect-[2/3] md:aspect-[3/4.5] rounded-[40px] overflow-hidden border border-white/10 bg-gradient-to-br from-white/10 to-transparent accent-glow group">
              <img 
-               src="/ashraf-profile.png?v=1" 
-               alt="Ashraf - Digital Marketing Specialist" 
-               className="w-full h-full object-cover object-top"
+               src="/profile.png?v=7" 
+               alt="Ashraf Marketo" 
+               className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
                referrerPolicy="no-referrer"
+               loading="lazy"
                onError={(e) => {
                  const img = e.target as HTMLImageElement;
-                 if (!img.src.includes('pollinations.ai')) {
-                   img.src = 'https://pollinations.ai/p/professional-portrait-digital-marketing-specialist-man-suit-clean-background-8k?width=800&height=1200&nologo=true';
+                 if (img.src.includes('profile.png')) {
+                   // Fallback 1: AI Generated Portrait matching your requested look
+                   img.src = 'https://pollinations.ai/p/professional-portrait-young-man-brown-wool-tweed-blazer-dark-brown-shirt-beard-styled-dark-hair-8k?width=800&height=1200&nologo=true';
+                 } else if (img.src.includes('pollinations.ai')) {
+                   // Fallback 2: Reliable standard placeholder
+                   img.src = 'https://picsum.photos/seed/ashraf-about-suit/800/1200';
                  }
                }}
              />
